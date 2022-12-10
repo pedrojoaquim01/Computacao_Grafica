@@ -38,22 +38,18 @@ def Piramide():
     glBegin(GL_TRIANGLES)
     i = 0
     for face in faces:
-        # glColor3fv(cores[i])
         for vertex in face:
             glColor3fv(cores[vertex])
             glVertex3fv(vertices[vertex])
-        i = i + 1
+        i += 1
     glEnd()
     glBegin(GL_QUADS)
-    for v in (1, 2, 3, 4):
+    for v in list(range(1, 4)):
         glColor3fv(cores[v])
         glVertex3fv(vertices[v])
     glEnd()
-
-
 a = 0
-
-def desenhaDuasPiramides():
+def desenhaPiramides():
     # Cubo da Esquerda
     glPushMatrix()
     glTranslatef(-2,0,0)
@@ -66,6 +62,12 @@ def desenhaDuasPiramides():
     glRotatef(a,1,0,0)
     Piramide()
     glPopMatrix()
+    # Cubo da Direita
+    glPushMatrix()
+    glTranslatef(0,4,0)
+    glRotatef(a,0,1,0)
+    Piramide()
+    glPopMatrix()
 
 
 
@@ -74,11 +76,7 @@ def desenha():
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
     glPushMatrix()
     glTranslatef(0,-2,0)
-    desenhaDuasPiramides()
-    glPopMatrix()
-    glPushMatrix()
-    glTranslatef(0,2,0)
-    desenhaDuasPiramides()
+    desenhaPiramides()
     glPopMatrix()
     a += 1
     
@@ -94,7 +92,7 @@ sdl2.SDL_GL_SetAttribute(sdl2.SDL_GL_CONTEXT_PROFILE_MASK, sdl2.SDL_GL_CONTEXT_P
 sdl2.SDL_GL_SetAttribute(sdl2.SDL_GL_DOUBLEBUFFER, 1)
 sdl2.SDL_GL_SetAttribute(sdl2.SDL_GL_DEPTH_SIZE, 24)
 sdl2.SDL_GL_SetSwapInterval(1)
-window = sdl2.SDL_CreateWindow(b"Cubo", sdl2.SDL_WINDOWPOS_CENTERED, sdl2.SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH,
+window = sdl2.SDL_CreateWindow(b"Piramides", sdl2.SDL_WINDOWPOS_CENTERED, sdl2.SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH,
                                WINDOW_HEIGHT, sdl2.SDL_WINDOW_OPENGL | sdl2.SDL_WINDOW_SHOWN)
 if not window:
     sys.stderr.write("Error: Could not create window\n")

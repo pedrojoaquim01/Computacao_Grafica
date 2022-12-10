@@ -1,6 +1,6 @@
 # Computacao_Grafica
 Entregas e projetos de Computação Gráfica
-
+Todas as bibliotecas utilizadas estão disponíveis no arquivo  `requirements.txt`
 ---
 
 ## Trabalhos de Computação Gráfica – 1ª Etapa

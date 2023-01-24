@@ -13,3 +13,7 @@ Para facilitar a execução dos projetos foi criado o arquivo ''Execucao.bat'', 
 5. Malha definida por uma função f(x,y) -> z (p. exemplo parabolóide circular e parabolóide hiperbólico)
 
 Para executar os códigos do Trabalho utilize o comando: `./Execucao.bat ` passando um dos números correspondentes do trabalho.
+
+## Trabalhos de Computação Gráfica – 2ª Etapa
+
+O arquivo `Arvore_Dithering.txt` possue o script que deve ser rodado utilizando a ferramenta ShaderToy
